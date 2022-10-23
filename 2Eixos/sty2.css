@@ -1,0 +1,354 @@
+body
+{
+    color:black;
+    font-family: Arial;
+    font-size: 18px;
+    box-sizing:border-box;
+    margin: 0;
+    padding: 0;
+    margin-right: 0px;
+    
+}
+
+.titulo
+{
+    background-color:rgb(223, 209, 23);
+    color:black;
+    font-family: cursive;
+    margin-top: 0px;
+    top: 0;
+    height: 100%;
+}
+
+.h3
+{
+    margin-top: 0px; 
+    padding: 15px; 
+    text-align: center;
+    font-family: cursive;
+}
+
+p
+{
+    line-height: 15px;
+}
+a
+{
+    text-decoration: none;
+}
+
+input[type=number]::-webkit-inner-spin-button /* tirar as setas dos imputs*/
+{ 
+    -webkit-appearance: none;  
+}
+input[type=number] 
+{ 
+   -moz-appearance: textfield;
+   appearance: textfield;
+}
+
+label
+{
+    padding: 10px;
+    line-height: 30px;
+}
+input:disabled
+{
+    background-color:rgb(200, 200, 200);
+}
+button:disabled
+{
+    background-color:rgb(200, 200, 200);
+}
+
+
+.pot{width:50px;border-radius:10px;text-align: center}
+.rotação{width:50px;border-radius:10px;text-align: center}
+.comprimento{width:50px;border-radius:10px;text-align: center}
+.inclinação{width:30px;border-radius:10px;text-align: center}
+.z{width:40px;border-radius:10px;text-align: center}
+.m{width:40px;border-radius:10px;text-align: center}
+.fi{width:30px;border-radius:10px;text-align: center}
+.psi{width:30px;border-radius:10px;text-align: center}
+.d1{width:50px;border-radius:10px;text-align: center}
+.d2{width:50px;border-radius:10px;text-align: center}
+.d3{width:50px;border-radius:10px;text-align: center}
+.d4{width:50px;border-radius:10px;text-align: center}
+
+/* Entrada de dados 1 */
+
+.div1
+{
+    display : flex;
+    font-family:'Franklin Gothic Medium', Arial;
+    margin-left: 20px;
+}
+.campo1
+{
+    width : 450px;
+    height : 215px;
+    border-width: 2px;
+    border-color: black;
+    border-radius: 15px;
+    
+}
+.campo2
+{
+    width : 450px;
+    height : 50px;
+    border:none;
+    
+}
+.campo3
+{
+    width : 450px;
+    height : 215px;
+    border-width: 2px;
+    border-color: black;
+    border-radius: 15px;
+    
+}
+.entpot
+{
+    font-family: cursive;
+    float: left;
+    margin-left: 20px; 
+    margin-bottom: 20px;
+    border-radius: 1px;
+    cursor: pointer;
+}
+.entpot:hover
+{
+    background-color:rgb(210, 210, 210);
+}
+.botãoenviar
+{
+    font-family: cursive;
+    float: left;
+    margin-left: 20px; 
+    margin-bottom: 20px;
+    border-radius: 1px;
+    cursor: pointer;
+}
+.botãoenviar:hover
+{
+    background-color:rgb(210, 210, 210);
+}
+.botãocorrigir
+{
+    font-family: cursive;
+    float: right;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    border-radius: 1px;
+    cursor: pointer;
+}
+.botãocorrigir:hover
+{
+    background-color:rgb(210, 210, 210);
+}
+.div2
+{
+    display : flex;
+    font-family:'Franklin Gothic Medium', Arial;
+    margin-left: 20px;
+}
+
+/* Entrada de dados 2*/
+
+.campo4
+{
+    width : 450px;
+    height : 140px;
+    border-width: 2px;
+    border-color: black;
+    border-radius: 15px;
+}
+.campo5
+{
+    width : 450px;
+    height : 445px;
+    border-width: 2px;
+    border-color: black;
+    border-radius: 15px;
+}
+.fieldaviso
+{
+    width : 180px;
+    height : 600px;
+    border-width: 2px;
+    border-color: black;
+    border-radius: 15px;
+    display : flex;
+    font-family:'Franklin Gothic Medium', Arial;
+    color: black;
+}
+.aviso
+{
+    display:flex;
+    margin-top: 180px;
+    text-align: justify;
+    line-height: 22px;
+}
+.diametro
+{
+    margin-left: 10px;
+    line-height: 5px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+.confirmar2
+{
+    font-family: cursive;
+    border-radius: 1px;
+    cursor: pointer;  
+}
+.confirmar2:hover
+{
+    background-color:rgb(210, 210, 210);
+}
+.botãoenviar2
+{
+    font-family: cursive; 
+    float: left;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    border-radius: 1px;
+    cursor: pointer;
+}
+.botãoenviar2:hover
+{
+    background-color:rgb(210, 210, 210);
+}
+.botãocorrigir2
+{
+    font-family: cursive;
+    float: right;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    border-radius: 1px;
+    cursor: pointer;
+}
+.botãocorrigir2:hover
+{
+    background-color:rgb(210, 210, 210);
+}
+
+.botãocalcular
+{
+    font-family: cursive; 
+    display:flex;
+    margin:0 auto;
+    border-radius: 1px; 
+    cursor: pointer;
+    width:200px;
+    justify-content: center;
+}
+.botãocalcular:hover
+{
+    background-color:rgb(70, 70, 70);
+    transform: scale(1.2);
+    transition: 0.5s;
+}
+
+/* Area de resultados*/
+
+.resultados
+{
+    width: 50%;
+    margin-left: 25%;
+    font-family: Arial;
+    background-color:transparent;
+    color:black; 
+}
+.titres
+{
+    top: 0px;
+    margin-top: 20px;  
+    text-align: center;   
+}
+.eixo
+{
+    margin-left: 20px;
+}
+.titeixo
+{
+    text-align: center;
+    border-top-width: 0;
+    border-right-width: 0;
+    border-left-width: 0;
+    border-bottom-width: 3;
+    margin-bottom: 5px;
+    width: 90%;
+    margin:0 auto;
+}
+.titdif
+{
+    text-align: center; 
+}
+.botãosalvar
+{
+    font-family: cursive; 
+    display:flex;
+    margin:0 auto;
+    border-radius: 1px; 
+    cursor: pointer;
+    width:220px;
+    justify-content: center;
+}
+.botãosalvar:hover
+{
+    background-color:rgb(70, 70, 70);
+    transform: scale(1.1);
+    transition: 0.5s;
+}
+
+/* Telas */
+
+.tela1
+{
+    border:none;
+}
+.tela2
+{
+    border:none;
+}
+.tela3
+{
+    border:none; 
+    margin-left: 15px; 
+}
+.tela4
+{
+    border:none;
+    margin-left: 15px;
+}
+.graficos
+{
+    position: relative;
+    height: 50%;
+    width: 50%;
+    margin:0 auto;
+}
+.sistema1
+{
+    position: relative;
+    margin:0 auto;
+    height: 550px;
+    width: 600px;  
+}
+.sistema
+{
+    position: relative;
+    margin:0 auto;
+    height: 600px;
+    width: 600px;
+}
+.dadossistema
+{
+    position: relative;
+    margin:0 auto;
+    border:none;
+    height: 280px;
+    width: 400px;
+}

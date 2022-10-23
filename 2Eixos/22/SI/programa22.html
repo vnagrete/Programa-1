@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="../../sty2.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.2/chart.min.js"></script>
+
+    <title>Nome do site</title>
+</head>
+
+<body onload="desenhoinicial(),desenhoinicial2()">   
+
+    <div id="divimprimir">
+
+       <div class = "titulo">
+           <h2 class = "h3">Sistema com 2 eixos e 2 engrenagens (SI)</h2> 
+       </div><br>
+
+       <div class = "div1">
+           <div>
+               <fieldset class = "campo1">
+
+                   <label> Potência e rotação de entrada:</label><br>
+
+                   <form id = "potent">
+                       <label> Potência de entrada:</label>
+                       <input type="number" id = "pot" class = "pot"><label>kN</label><br>  
+                       <label> Rotação de entrada:</label>
+                       <input type="number" id = "rotação" class = "rotação"><label>rpm</label><br>
+                       <p id="potdeterminada"> </p>
+                       <p id="rotdeterminada"> </p>
+                   </form>    
+
+                   <button onclick="entpot()" id="entpot" class="entpot">Confirmar</button><br><br>
+
+               </fieldset>
+
+               <fieldset class = "campo2">
+
+                   <p id="neixos"> Número de eixos: 2</p>
+
+               </fieldset>
+
+               <fieldset class = "campo3">
+                   
+                   <p id="tabeladadosdoeixo"> Eixo a</p>
+                   
+                   <form id = "formeixos">
+                       <label> Comprimento:</label>
+                       <input type="number" id = "comprimento" class = "comprimento"><label>mm</label><br><br>
+                       <label> Inclinação:</label>
+                       <input type="number" id = "inclinação" class = "inclinação" disabled=""><label>°</label><br>  
+                   </form><br><br>
+               
+                   <button id="botãoenviar" class="botãoenviar"  type="submit" disabled="" onclick="enviardados(),desenhareixos(),dadosdoeixo()">Enviar Dados</button>
+                   <button id="botãocorrigir" class="botãocorrigir" type="submit" disabled="" onclick="corrigirdados()">Corrigir Dados</button><br>
+               
+               </fieldset>
+
+           </div>
+
+           <fieldset class="tela1">
+               <canvas id="tela" width="550" height="550" class="tela1"> </canvas><br>
+           </fieldset>
+       </div>
+
+       <fieldset class="tela3">
+           <canvas id="tela3" width="1000" height="200" class="tela3"> </canvas><br>
+       </fieldset>
+
+       <!-- Divisão de entrada de dados-->
+
+       <div class = "div2">
+           <div>
+
+               <fieldset class="campo4">
+
+                   <p id="cabeçadoformulario"> Eixo a</p>
+
+                   <p id="nengrenagens"> Número de engrenagens: 1</p><br>
+
+                   <button onclick="confirmar2()" id="confirmar2" class="confirmar2" disabled="">Próximo eixo</button><br><br>
+
+               </fieldset>
+
+               <fieldset class="campo5">
+
+                   <p id="tabeladadosdaengrenagem"> Engrenagem 1 </p>
+                   
+                   <form id = "formengrenagens">
+                       <label> Número de dentes:</label>
+                       <input type="number" id="z" class="z" onchange="detdiametro()">
+                       <label> Módulo:</label>
+                       <input type="number" id = "m" class = "m" onchange="detdiametro()"><label>mm</label><br>
+                       <p id="diametro" class="diametro">Diâmetro:</p>
+                       <label> Sentido da hélice:</label>
+                       <input type="radio" id = "hd" name ="sentidodahelice" value ="destra" onchange="mostrarpsi()"><label>Destra</label> <input type="radio" id = "hs" name ="sentidodahelice" value="sestra" onchange="mostrarpsi()"><label>Sestra</label> <input type="radio" id = "h" name ="sentidodahelice" value="reta" onchange="esconderpsi()"><label>Reta</label><br>
+                       <label> Ângulo de pressão normal:</label>
+                       <input type="number" id = "fi" class = "fi"><label>°</label><br>
+                       <label> Ângulo de hélice:</label>
+                       <input type="number" id = "psi" class = "psi"><label>°</label><br>
+                       <label> Sentido de rotação:</label>
+                       <input type="radio" id = "sentido" name ="sentidoderotação" value="horario"><label>Horário</label> <input type="radio" id = "sentido2" name ="sentidoderotação" value="antihorario"><label>Anti-horário</label><br>  
+                       <br>
+                       <label id ="labeld1"> D1:</label>
+                       <input type="number" id = "d1" class = "d1"><label id ="mmd1">mm</label><br>
+                       <label id ="labeld2"> D2:</label>
+                       <input type="number" id = "d2" class = "d2"><label id ="mmd2">mm</label><br>
+                       <label id ="labeld3"> D3:</label>
+                       <input type="number" id = "d3" class = "d3"><label id ="mmd3">mm</label><br>
+                   </form><br><br>
+
+                   <button id="botãoenviar2" class="botãoenviar2" type="submit" disabled="" onclick="enviardados2()">Enviar Dados</button>
+                   <button id="botãocorrigir2" class="botãocorrigir2" type="submit" disabled="" onclick="corrigirdados2()">Corrigir Dados</button><br>
+
+               </fieldset>
+           </div>
+
+           <fieldset class="tela2">
+               <canvas id="tela2" width="600" height="600" class="tela2"> </canvas><br>
+           </fieldset>
+
+           <fieldset class="fieldaviso">
+               <p class="aviso">Atenção: Esse site usa o primeiro diedro na representação dos desenhos. Caso use referências no sistema inglês, as cotas estarão com a referência oposta no eixo Z.</p>
+           </fieldset>
+
+       </div>
+       
+       <fieldset class='tela4'><br>
+           <canvas id="tela4" width="1200" height="310" class="tela4"> </canvas>
+       </fieldset><br>
+
+       <a href="#resultados"><button id="botãocalcular" class="botãocalcular" type="submit" disabled="" onclick="calculo()">Calcular</button></a><br><br><br>
+
+
+    </div>
+
+<!-- Resultados-->
+
+    <fieldset id="resultados" class='resultados' style="display: none">
+
+        <p>Nome do programa</p><br>
+        <p>Unidades: Sistema Internacional</p>
+        <p>Sistema com dois eixos</p>
+
+        <h3 class="titres">Resultados do Sistema</h3><br>
+
+        <p class="titdif">Posicionamento dos eixos</p><br>
+
+        <fieldset class="sistema1">
+            <canvas id="eixosr" width="550" height="550"></canvas>
+        </fieldset>
+        <fieldset class="dadossistema">
+            <canvas id="dadoseixosr" width="600" height="200"></canvas>
+        </fieldset>
+        
+
+        <div class="eixo">
+            <fieldset class="titeixo"><h4 class="titeixo">Eixo a</h4></fieldset><br>
+
+            <fieldset class="sistema">
+                <canvas id="eixoar" width="600" height="600"></canvas>
+            </fieldset>
+            <fieldset class="dadossistema">
+                <canvas id="dadoseixoa" width="300" height="310"></canvas>
+            </fieldset>
+
+            <br><br><br><br>
+
+            <h5>Componentes do Eixo:</h5><br>
+
+            <p id="f32"> </p><br>
+
+            <p id="mancala"> </p><br>
+            <p id="fa"> </p>
+            <p id="fb"> </p><br>
+            
+            <fieldset class="graficos">
+                <canvas id="grafico1" style="position: relative"></canvas>
+            </fieldset><br>
+
+            <fieldset class="graficos">
+                <canvas id="grafico2" style="position: relative"></canvas>
+            </fieldset><br>
+
+            <p id="momaxa"> </p>
+                    
+        </div>
+        
+        <br><br><br>
+
+        <div class="eixo">
+
+            <fieldset class="titeixo"><h4 class="titeixo">Eixo b</h4></fieldset><br>
+
+            <fieldset class="sistema">
+                <canvas id="eixobr" width="600" height="600"></canvas>
+            </fieldset>
+            <fieldset class="dadossistema">
+                <canvas id="dadoseixob" width="600" height="310"></canvas>
+            </fieldset><br>
+
+            <h5>Componentes do Eixo:</h5><br>
+
+            <p id="f23"> </p>
+            <p id="f43"> </p><br>
+
+            <p id="mancalb"> </p><br>
+            <p id="fc"> </p>
+            <p id="fd"> </p><br>
+            
+            <fieldset class="graficos">
+                <canvas id="grafico3" style="position: relative"></canvas>
+            </fieldset><br>
+
+            <fieldset class="graficos">
+                <canvas id="grafico4" style="position: relative"></canvas>
+            </fieldset><br>
+
+            <p id="momaxb"> </p>
+                    
+        </div>
+
+    </fieldset><br><br>
+
+    <button id="botãosalvar" class="botãosalvar" type="submit" style="display: none" onclick="salvar() ">Salvar resultados</button><br><br>
+
+
+    <script src="dados22.js"></script>
+    
+</body>
+</html>
+
+<!--style.display-->
+<!-- Arrumar fildset, 
+    Mudar cor de fundo,
+    -->
